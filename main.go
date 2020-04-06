@@ -95,11 +95,7 @@ func main() {
 		Url    string `arg:"required" "-u" help:"http url to play"`
 	}
 
-	err := arg.Parse(&args)
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
+	arg.MustParse(&args)
 
 	benchPlay(args.Stream, args.Url,args.Count)
 }
